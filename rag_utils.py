@@ -12,7 +12,9 @@ embedder = SentenceTransformer("BAAI/bge-base-en-v1.5")
 # model = AutoModelForCausalLM.from_pretrained("tiiuae/falcon-7b-instruct")
 
 tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large")
-model = AutoModelForCausalLM.from_pretrained("facebook/bart-large")
+model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large")
+
+
 
 def create_vector_store(chunks, index_path="data/index.faiss", meta_path="data/chunks.pkl"):
     embeddings = embedder.encode(chunks)

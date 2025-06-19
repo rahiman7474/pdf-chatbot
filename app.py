@@ -19,7 +19,7 @@ if "index" not in st.session_state:
         st.info("Processing PDF...")
         raw_text = extract_text_from_pdf(PDF_PATH)
         chunks = split_text(raw_text, chunk_size=500, overlap=50)
-        index, embeddings = create_vector_store(chunks, INDEX_PATH, CHUNKS_PATH)
+        index, embeddings = create_vector_store(chunks)
     st.session_state.index = index
     st.session_state.chunks = chunks
     st.session_state.embeddings = embeddings
